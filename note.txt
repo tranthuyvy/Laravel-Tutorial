@@ -79,3 +79,5 @@
     + Sử dụng with:
         -- return view('products.index')->with('name', $name);
         -- Chỉ có thể truyền 1 parameter
+
+- Dùng lệnh php artisan storage:link: thư mục mặc định của laravel đảm bảo bảo mật

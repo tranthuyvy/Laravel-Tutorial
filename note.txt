@@ -1,4 +1,6 @@
-Framework Laravel 9
+---------------------------------------CREATED BY TRAN THUY VY-------------------------------------------
+-----------------------------------------Framework Laravel 9-----------------------------------------
+
 - MVC - Model View Controller (theo dõi tổng quan mô hình file Mo_Hinh_MVC.jpg)
     + Ban đầu sẽ có request từ phía người dùng (trình duyệt). Trình duyệt sẽ gửi request từ phía client
     + Request sẽ được đi qua Routing. Định tuyến Routing (như lễ tân)
@@ -6,6 +8,7 @@ Framework Laravel 9
     + Đôi khi Controller sẽ phải thao tác với CSDL thông qua Model
     + Model là nơi để ánh xạ các bảng trong CSDL 
     + Khi người dùng xử lý xong thì sẽ đẩy lên View để người dùng có thể xem được trên trình duyệt
+
 - Một vài phần mềm cần sử dụng:
     + XAMPP -> mysql
     + Composer (quan trọng) -> để tạo project cài các packages trong PHP Laravel
@@ -14,3 +17,44 @@ Framework Laravel 9
         -- Đảm bảo kết nối internet để composer download các packages cần thiết.
         -- Dùng lệnh php artisan serve để khởi chạy máy chủ, thường sẽ chạy bằng cổng 8000. Nếu muốn sử dụng cổng khác để chạy project
         --> dùng lệnh: php artisan serve --port=8082
+        -- Có thể config hoặc không: config file hosts trong thư mục C:\Windows\System32\drivers\etc thay localhost => tên mình muốn
+    + Cài các extensions VS Code:
+        -- Laravel Artisan
+        -- Laravel Blade Snippets
+        -- Laravel goto view
+        -- Live Sass Compiler: đầu ra cập nhật ngay lập tức
+        -- PHP IntelliSense
+        -- Getter and Setter Generator
+        -- JavaScript (ES6) code snippets
+        -- vscode-icons (có hoặc không đều được)
+
+- File .env (Environment Variables): chứa biến môi trường
+    + Thường thì hay defind constrant thì không cần defind nữa => bỏ các biến vào file .env (Ex: MY_NAME="Tran Thuy Vy")
+    + Đồng thời bảo mật được dữ liệu
+
+- Folder vendor chứa các packages, các thư viện dành cho project laravel
+
+- Trong file composer.json: 
+    + Ý nghĩa của các số: (patch).(alpha).(beta): giúp kiểm tra được project đang chạy version nào
+        -- alpha và beta là con số của bản thử nghiệm
+    + Ví dụ như: ^7.2 nghĩa là phiên bản 7.2 --> 8
+    + "require": là những thư viện cần phải cài đặt
+    + "require-dev": là những thư viện dành cho viết code
+    + "autoload": 
+        -- Là những thư mục đọc ngay khi project khởi tạo lên
+        -- Có thể đặt thêm nhiều thư mục vào đây
+
+- Trong file composer.lock:
+    + Sử dụng để dò thư viện tương ứng các thư viện composer.json
+    + Tại file chỉ rõ thư viện lấy từ đâu
+    + Nếu lỡ xóa file composer.lock dùng lệnh: composer update/install, nó sẽ đọc các thư viện trong file
+    composer.lock để cài ra
+
+- https://packagist.org/ : nơi chứa rất nhiều thư viện của Laravel
+
+- Route::get('/something', function () {
+    return redirect('/foods');//redirect to foods
+});
+    + :: là gọi phương thức static
+    + redirect: chuyển đến trang với endpoint tương ứng
+    

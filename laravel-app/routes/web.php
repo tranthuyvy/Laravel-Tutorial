@@ -1,17 +1,28 @@
 <?php
 
+use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
 
-Route::get('/products', [
+Route::get('/', [PagesController::class, 'index']);
+Route::get('/about', [PagesController::class, 'about']);
+
+// Route::get('/products', [
+//     ProductsController::class,
+//     'index' //index function of ProductsController
+// ]);
+
+//how to validate "id only integer" ?
+//Regular Expression
+/*
+Route::get('/products/{productName}/{id}', [
     ProductsController::class,
-    'index' //index function of ProductsController
+    'detail'
+])->where([
+    'productName' => '[a-zA-Z0-9\s]+',
+    'id' => '[0-9]+'
 ]);
 
-Route::get('/products/{id}', [
-    ProductsController::class,
-    'detail' //index function of ProductsController
-]);
 
 
 // Route::get('/', function () {

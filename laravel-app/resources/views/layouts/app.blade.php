@@ -7,6 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>This home page</h1>
+    <div style="background-color: aqua; height: 100px">
+        <p>HEADER</p>
+    </div>
+
+    @yield('content')
+
+    <div style="background-color: salmon; height: 100px">
+        <p>FOOTER</p>
+    </div>
 </body>
 </html>

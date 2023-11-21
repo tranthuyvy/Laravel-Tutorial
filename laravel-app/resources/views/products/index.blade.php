@@ -11,8 +11,9 @@
     {{-- <h2>Title: {{ $title }}</h2>
     <h3>x = {{ $x }}</h3>
     <h3>y = {{ $y }}</h3> --}}
-    @foreach ($myphone as $item)
-        <h3>{{ $item }}</h3>
-    @endforeach
+    {{-- @foreach ($product as $item)
+        <h3>{{ $product }}</h3>
+    @endforeach --}}
+    <h3>{{ $product }}</h3>
 </body>
 </html>

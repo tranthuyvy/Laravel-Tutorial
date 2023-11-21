@@ -34,4 +34,16 @@ class ProductsController extends Controller
     {
         return 'About page';
     }
+
+    public function detail($productName)
+    {
+        $phones = [
+            'iphone 15' => 'iphone 15',
+            'samsung' => 'samsung',
+        ];
+        // return "product's id = " . $id;
+        return view('products.index', [
+            'product' => $phones[$productName] ?? "unknown product"
+        ]);
+    }
 }

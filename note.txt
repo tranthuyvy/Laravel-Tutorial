@@ -58,3 +58,24 @@
     + :: là gọi phương thức static
     + redirect: chuyển đến trang với endpoint tương ứng
     
+- Sử dụng lệnh php artisan list: để xem các lệnh hỗ trợ project
+- php artisan make:controller ProductsController để tạo controller mới trong thư mục Controller
+    + Trường hợp trùng tên file Controller thì báo lỗi tồn tại 
+    + Nếu muốn tạo mặc kệ thì php artisan make:controller ProductsController --force, nếu có trước đó sẽ tạo đè lên
+
+- Nguyên tắc tạo view:
+    + Nếu Controller tên là Products thì bên trong thư mục views sẽ có 1 thư mục tên giống hệt với Controller nhưng viết thường
+        -- Ex: ProductsController --> thư mục tên: products 
+
+- Cách pass data to view: 
+    + Sử dụng compact: 
+        -- return view('products.index', compact('title', 'x', 'y'));
+        -- Có thể truyền 1 hoặc nhiều parameter
+
+        -- Send array:
+            ++ return view('products.index', compact('myphone'));
+        -- Gửi trực tiếp:
+            ++ return return view('products.index', ['myphone' => $myphone]);
+    + Sử dụng with:
+        -- return view('products.index')->with('name', $name);
+        -- Chỉ có thể truyền 1 parameter

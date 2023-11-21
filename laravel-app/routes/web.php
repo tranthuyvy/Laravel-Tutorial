@@ -1,10 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductsController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/products', [
+    ProductsController::class,
+    'index' //index function of ProductsController
+]);
+
+Route::get('/products/{id}', [
+    ProductsController::class,
+    'detail' //index function of ProductsController
+]);
+
+
+// Route::get('/', function () {
+//     return view('home');
+// });
 
 /*
 //response a string

@@ -1,0 +1,16 @@
+Framework Laravel 9
+- MVC - Model View Controller (theo dõi tổng quan mô hình file Mo_Hinh_MVC.jpg)
+    + Ban đầu sẽ có request từ phía người dùng (trình duyệt). Trình duyệt sẽ gửi request từ phía client
+    + Request sẽ được đi qua Routing. Định tuyến Routing (như lễ tân)
+    + Thông qua Routing sẽ phân định những Controller (người xử lý công việc) sẽ phụ trách
+    + Đôi khi Controller sẽ phải thao tác với CSDL thông qua Model
+    + Model là nơi để ánh xạ các bảng trong CSDL 
+    + Khi người dùng xử lý xong thì sẽ đẩy lên View để người dùng có thể xem được trên trình duyệt
+- Một vài phần mềm cần sử dụng:
+    + XAMPP -> mysql
+    + Composer (quan trọng) -> để tạo project cài các packages trong PHP Laravel
+        -- https://getcomposer.org/download/
+        -- Tạo mới project sử dụng lệnh: composer create-project laravel/laravel <Project_name>
+        -- Đảm bảo kết nối internet để composer download các packages cần thiết.
+        -- Dùng lệnh php artisan serve để khởi chạy máy chủ, thường sẽ chạy bằng cổng 8000. Nếu muốn sử dụng cổng khác để chạy project
+        --> dùng lệnh: php artisan serve --port=8082

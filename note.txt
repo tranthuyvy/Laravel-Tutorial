@@ -81,3 +81,9 @@
         -- Chỉ có thể truyền 1 parameter
 
 - Dùng lệnh php artisan storage:link: thư mục mặc định của laravel đảm bảo bảo mật
+
+- Add SASS in Laravel Project:
+    + cài đặt node: node -v, npm -v (kiểm tra phiên bản)
+    + npm i
+    + Sử dụng npm run watch: mỗi lần thay đổi chỉ cần Ctrl S sẽ tự động build lại
+    

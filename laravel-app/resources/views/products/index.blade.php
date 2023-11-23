@@ -7,13 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Index Function ProductController</h1>
+    <h1>Index function of ProductsController</h1>    
     {{-- <h2>Title: {{ $title }}</h2>
     <h3>x = {{ $x }}</h3>
     <h3>y = {{ $y }}</h3> --}}
-    {{-- @foreach ($product as $item)
-        <h3>{{ $product }}</h3>
-    @endforeach --}}
-    <h3>{{ $product }}</h3>
+    {{-- <h3>name = {{ $name }}</h3> --}}
+    {{-- <h3>{{ $product }}</h3> --}}
+    <a href="{{ route('products') }}">Link to Products</a>
 </body>
 </html>

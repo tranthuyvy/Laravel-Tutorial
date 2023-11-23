@@ -6,17 +6,16 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function index()
-    {
+    public function index() {
         return view('index');
     }
-
-    public function about()
-    {
-        $name = "Vy";
-        $names = array('Vy', 'Thanh', 'Thuy', 'Son');
+    public function about() {
+        $name = "Tony";
+        $names = array('Hoang', 'David', 'John', 'Micheal','Taylor');
+        //$names = [];
         return view('about', [
             'names' => $names,
         ]);
     }
+    //Now Database and Migrations
 }

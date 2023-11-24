@@ -59,9 +59,22 @@
     + redirect: chuyển đến trang với endpoint tương ứng
     
 - Sử dụng lệnh php artisan list: để xem các lệnh hỗ trợ project
-- php artisan make:controller ProductsController để tạo controller mới trong thư mục Controller
-    + Trường hợp trùng tên file Controller thì báo lỗi tồn tại 
-    + Nếu muốn tạo mặc kệ thì php artisan make:controller ProductsController --force, nếu có trước đó sẽ tạo đè lên
+    + php artisan make:model <tên model> đê tạo model mới
+    + php artisan make:migration create_table_posts để tạo một table mới 
+    ===> Có thể sử dụng php artisan make:model Post -m để tạo đồng thời cả model và table
+    + php artisan migrate để thực hiện tạo all bảng
+    + php artisan migrate:reset: đồng nghĩa với việc chạy vào func down() --> drop table
+    + php artisan migrate:refresh = rollback + migrate
+    + php artisan make:factory <tên factory> --model=<tên Model>: Để tạo ra các dữ liệu fake
+    + php artisan make:controller ProductsController để tạo controller mới trong thư mục Controller
+        -- Trường hợp trùng tên file Controller thì báo lỗi tồn tại 
+        -- Nếu muốn tạo mặc kệ thì php artisan make:controller ProductsController --force, nếu có trước đó sẽ tạo đè lên
+    + php artisan clear-compiled: clear các service, các packages
+    + php artisan up: chế độ đang chạy, thường sẽ hoạt động ở chế độ này
+    + php artisan down: chế độ Maintenance Mode (bảo trì)
+    + php application env: application đang chạy tại đâu (local)
+    + php artisan --version: Laravel Framework version
+    + php artisan optimize: trong trường hợp dữ liệu cũ vẫn còn -> clear
 
 - Nguyên tắc tạo view:
     + Nếu Controller tên là Products thì bên trong thư mục views sẽ có 1 thư mục tên giống hệt với Controller nhưng viết thường
@@ -87,13 +100,6 @@
     + npm i
     + Sử dụng npm run watch: mỗi lần thay đổi chỉ cần Ctrl S sẽ tự động build lại
     
-- Dùng lệnh php artisan make:model <tên model> đê tạo model mới
-- Dùng lệnh php artisan make:migration create_table_posts để tạo một table mới 
----> Có thể sử dụng php artisan make:model Post -m để tạo đồng thời cả model và table
-- Dùng lệnh php artisan migrate để thực hiện tạo all bảng
-- php artisan migrate:reset: đồng nghĩa với việc chạy vào func down() --> drop table
-- php artisan migrate:refresh = rollback + migrate
-- php artisan make:factory <tên factory> --model=<tên Model>: Để tạo ra các dữ liệu fake
 - Đối với $table->timestamps(); sẽ đại diện cho 2 trường: created_at, updated_at
 
 - Một vài lệnh với mysql: 
@@ -107,3 +113,39 @@
 
 - TINKER: php artisan tinker (repl): dùng để debug tốt
     + sau đó sử dụng: \App\Models\Post::factory()->count(2)->create(); để tạo ra dữ liệu fakes
+
+- @csrf đảm bảo bảo mật 
+- Tại trang update thông tin phải định nghĩa method: @method('PUT')
+
+- Có 2 kiểu xóa:
+    + ->onDelete('cascade'); thằng 1 bị xóa thì thằng nhiều cũng bị xóa theo
+    + ->onDelete('set null'); thằng 1 bị xóa thì thằng nhiều null
+
+- Set quan hệ trong model:
+    + Ex: 1 loại có nhiều sản phẩm
+        -- Model Category: 
+            public function foods() {
+            return $this->hasMany(Food::class);
+        }
+
+        -- Model Food:
+            public function category() {
+            return $this->belongsTo(Category::class);
+        }
+    + Config đúng tên bảng và primaryKey: 
+        protected $table = 'categories';
+        protected $primaryKey = 'id'; 
+ - Validate: 
+    + 'count' => 'required|integer|min:0|max:200' : bắt buộc điền, số nguyên, [0:200]
+
+- Upload file image:
+    + $request->file('image')->guessExtension(): lấy đuôi file ảnh
+    + $request->file('image')->getMimeType(): check có đúng file ảnh không
+    + $request->file('image')->getClientOriginalName(): lấy tên nguyên thủy của file
+    + $request->file('image')->getSize(): lấy dung lượng file ảnh, đơn vị kilobytes
+    + Tên file ảnh upload phải khác nhau, nếu trùng nhau sẽ bị ghi đè nếu trùng tên:
+        -- $generatedImageName = 'image' . time() . '-'
+            . $request->name . '.'
+            . $request->image->extension();
+        -- Với hàm trên, tên ảnh được upload lên sẽ được gắn thêm image thời gian upload
+

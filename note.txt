@@ -65,7 +65,8 @@
     + php artisan migrate để thực hiện tạo all bảng
     + php artisan migrate:reset: đồng nghĩa với việc chạy vào func down() --> drop table
     + php artisan migrate:refresh = rollback + migrate
-	+ php artisan make:seeder <tên seeder>: Để tạo dữ liệu
+	+ php artisan make:seeder <tên seeder>: Để tạo dữ liệu bảng trong db
+    + php artisan migrate:fresh --seed: vừa chạy lại tạo bảng vừa chạy seed
     + php artisan make:factory <tên factory> --model=<tên Model>: Để tạo ra các dữ liệu fake
     + php artisan make:controller ProductsController để tạo controller mới trong thư mục Controller
         -- Trường hợp trùng tên file Controller thì báo lỗi tồn tại 
